@@ -1,0 +1,53 @@
+# map with one key
+{:a 2}
+==>
+EDN(Map(
+  Property(PropertyKey(Keyword), Number)
+))
+
+# map with regular brackets
+(:a 2)
+==>
+EDN(Map(
+  Property(PropertyKey(Keyword), Number)
+))
+
+# map with few keys
+{:a 2, :b -7 :c "asd"}
+==>
+EDN(Map(
+  Property(PropertyKey(Keyword), Number),
+  Property(PropertyKey(Keyword), Number),
+  Property(PropertyKey(Keyword), String)
+))
+
+# map with keys string and keyword
+{:a 2, :b "kk", "c" true :z nil}
+==>
+EDN(Map(
+  Property(PropertyKey(Keyword), Number),
+  Property(PropertyKey(Keyword), String),
+  Property(PropertyKey(String), Boolean),
+  Property(PropertyKey(Keyword), Nil)
+))
+
+# map with array
+{:a 2 :b [1 3 "z"] "c" nil}
+==>
+EDN(Map(
+  Property(PropertyKey(Keyword), Number),
+  Property(PropertyKey(Keyword), Array(Number, Number, String)),
+  Property(PropertyKey(String), Nil),
+))
+
+# nested map
+{:a {:k 5, "stam" "bla" :m false} :b [1 nil]}
+==>
+EDN(Map(
+  Property(PropertyKey(Keyword), Map(
+    Property(PropertyKey(Keyword), Number),
+    Property(PropertyKey(String), String),
+    Property(PropertyKey(Keyword), Boolean),
+  )),
+  Property(PropertyKey(Keyword), Array(Number, Nil)),
+))

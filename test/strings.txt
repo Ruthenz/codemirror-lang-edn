@@ -1,0 +1,9 @@
+# simple
+"asd"
+==>
+EDN(String)
+
+# with spaces
+"asd dsazc fdsf"
+==>
+EDN(String)

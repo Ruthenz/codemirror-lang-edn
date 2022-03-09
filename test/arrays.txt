@@ -1,0 +1,48 @@
+# numbers
+[1 2 3]
+==>
+EDN(Array(Number, Number, Number))
+
+# complex numbers
+[-1 2.4 34324]
+==>
+EDN(Array(Number, Number, Number))
+
+# numbers & strings
+[-1 2.4 "zxc"]
+==>
+EDN(Array(Number, Number, String))
+
+# strings
+["asd" "gfd" "vcx" "aaaaaaaaaaaa"]
+==>
+EDN(Array(String, String, String, String))
+
+# strings with comma
+["asd", "gfd", "vcx", "aaaaaaaaaaaa"]
+==>
+EDN(Array(String, String, String, String))
+
+# strings with half comma
+["asd", "gfd" "vcx" "aaaaaaaaaaaa", "lk"]
+==>
+EDN(Array(String, String, String, String, String))
+
+# strings with spaces
+["asd",   "gfd" "vcx" "aaaaaaaaaaaa", "lk"]
+==>
+EDN(Array(String, String, String, String, String))
+
+# nils with booleans
+[nil,   "gfd" true "aaaaaaaaaaaa", "lk"]
+==>
+EDN(Array(Nil, String, Boolean, String, String))
+
+
+# maps
+[{:a 5}, {:a  8}]
+==>
+EDN(Array(
+  Map(Property(PropertyKey(Keyword), Number)),
+  Map(Property(PropertyKey(Keyword), Number))
+))

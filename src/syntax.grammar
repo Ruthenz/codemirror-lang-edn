@@ -1,26 +1,46 @@
-@top Program { expression* }
+@top EDN { value }
 
-@skip { space | LineComment }
-
-expression {
-  Identifier |
-  String |
+value {
+  Nil |
   Boolean |
-  Application { "(" expression* ")" }
+  String |
+  Number |
+  Map |
+  Array
 }
 
+list<item> { whitespace* item (whitespace+ item)* whitespace* }
+
+PropertyKey { String | Keyword }
+Property { PropertyKey whitespace+ value }
+
+String { string }
+Map { "{" list<Property>? "}" }
+Array { ("[" | "(") list<value>? (")" | "]") }
+
 @tokens {
-  Identifier { $[a-zA-Z_\-0-9]+ }
+  Nil { "nil" }
 
-  String { '"' (!["\\] | "\\" _)* '"' }
+  Boolean { "true" | "false" }
 
-  Boolean { "#t" | "#f" }
+  Number { '-'? int frac? }
+  int  { '0' | $[1-9] std.digit* }
+  frac { '.' std.digit+ }
 
-  LineComment { ";" ![\n]* }
+  string { '"' char* '"' }
+  char { $[\u{20}\u{21}\u{23}-\u{5b}\u{5d}-\u{10ffff}] | "\\" esc }
+  esc  { $["\\\/bfnrt] | "u" hex hex hex hex }
+  hex  { $[0-9a-fA-F] }
 
-  space { $[ \t\n\r]+ }
+  identStart { std.asciiLetter | $[<>&%._=?!*+\-$\u{a1}-\u{10ff}/] }
+  identChar { identStart | std.digit | ":" | "'" | "#" | "/"}
+  ident { identStart identChar* }
+  keyword { ":" ":"? ident? } // the invalid token :: can also be considered as a keyword
+  Keyword { keyword }
 
-  "(" ")"
+  whitespace { $[ \n\r\t,] }
+
+  "{" "}" "[" "]" "(" ")" ","
 }
 
 @detectDelim

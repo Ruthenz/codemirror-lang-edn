@@ -1,0 +1,4 @@
+# Nil
+nil
+==>
+EDN(Nil)

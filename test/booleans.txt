@@ -1,0 +1,9 @@
+# true
+true
+==>
+EDN(Boolean)
+
+# false
+false
+==>
+EDN(Boolean)

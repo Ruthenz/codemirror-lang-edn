@@ -1,0 +1,14 @@
+# regular
+3214
+==>
+EDN(Number)
+
+# negative
+-59
+==>
+EDN(Number)
+
+# decimal
+0.8123
+==>
+EDN(Number)
