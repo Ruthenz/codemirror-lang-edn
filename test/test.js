@@ -1,4 +1,4 @@
-import {EDNLanguage} from "../dist/index.js"
+import {ednLanguage} from "../dist/index.js"
 import {fileTests} from "@lezer/generator/dist/test"
 
 import * as fs from "fs"
@@ -13,7 +13,7 @@ for (let file of fs.readdirSync(caseDir)) {
     describe(name, () => {
       for (let {name, run} of fileTests(fs.readFileSync(path.join(caseDir, file), "utf8"), file))
         it(name, () => {
-          run(EDNLanguage.parser)
+          run(ednLanguage.parser)
         })
     });
   }

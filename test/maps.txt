@@ -6,7 +6,7 @@ EDN(Map(
 ))
 
 # map with regular brackets
-(:a 2)
+{:a 2}
 ==>
 EDN(Map(
   Property(PropertyKey(Keyword), Number)

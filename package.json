@@ -1,6 +1,6 @@
 {
   "name": "codemirror-lang-edn",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "EDN language support for CodeMirror",
   "scripts": {
     "test": "mocha test/test.js",
@@ -20,7 +20,7 @@
     "@codemirror/language": "^0.19.0",
     "@codemirror/lint": "^0.19.6",
     "@lezer/lr": "^0.15.0",
-    "edn-parser": "^0.1.7"
+    "edn-parser": "^0.1.9"
   },
   "devDependencies": {
     "@lezer/generator": "^0.15.0",

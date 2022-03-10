@@ -38,7 +38,6 @@ EDN(Array(String, String, String, String, String))
 ==>
 EDN(Array(Nil, String, Boolean, String, String))
 
-
 # maps
 [{:a 5}, {:a  8}]
 ==>
@@ -46,3 +45,13 @@ EDN(Array(
   Map(Property(PropertyKey(Keyword), Number)),
   Map(Property(PropertyKey(Keyword), Number))
 ))
+
+# list - numbers
+(1 2 3)
+==>
+EDN(Array(Number, Number, Number))
+
+# list - strings
+("asd" "gfd" "vcx" "aaaaaaaaaaaa")
+==>
+EDN(Array(String, String, String, String))
